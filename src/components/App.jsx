@@ -20,6 +20,7 @@ import ThemingPage from "./patterns/Theming/Page";
 import VariantsPage from "./patterns/Variants/Page";
 import HooksPage from "./patterns/Hooks/Page";
 import RGALogo from "./RGALogo";
+import withWidthHoC from "./patterns/HigherOrderComponents/exercise_2/withWidthHoC";
 
 class App extends React.Component {
   constructor() {
@@ -143,4 +144,4 @@ class App extends React.Component {
   }
 }
 
-export default withWidth(App);
+export default withWidthHoC(App);

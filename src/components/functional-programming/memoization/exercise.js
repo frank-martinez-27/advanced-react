@@ -2,7 +2,7 @@
 Exercise
 
 Open the console on your browser and type [memoization exercise] in the console filter.
-You should see on the console the console.log() for this exercise. 
+You should see on the console the console.log() for this exercise.
 
 1. Pair up and explain to each other how the memoize function works with the doEasyWork function.
 
@@ -15,7 +15,7 @@ You should see on the console the console.log() for this exercise.
    You can use the function doAnyWork to test your refactored memoize function
 */
 
-export async function doEasyWork(amount) {
+export function doEasyWork(amount) {
   console.log(`[memoization exercise] ${amount} easy units produced`);
 }
 
@@ -33,7 +33,7 @@ export function doAnyWork(amount = 1, amount2 = 1, amount3 = 1) {
 
 function memoize(fn) {
   let cache = {};
-  return (amount) => {
+  const memoized = (amount) => {
     if (amount in cache) {
       console.log("[memoization exercise] output from cache");
       return cache[amount];
@@ -43,9 +43,10 @@ function memoize(fn) {
       return result;
     }
   };
+  return memoized;
 }
 
-const memoizedDoWork = memoize(doEasyWork);
+const memoizedDoWork = memoize(doHardWork);
 memoizedDoWork(4000);
 memoizedDoWork(4000);
 

@@ -4,9 +4,12 @@ import SideMenu from "react-burger-menu";
 import withWidth, {
   LARGE
 } from "../../HigherOrderComponents/exercise_2/withWidth";
+import useWidth from '../../CustomHooks/exercise/useWidth';
 import FloatingMenuBtn from "../../../FloatingMenuBtn";
 
-const Menu = ({ isOpen, children, pageWrapId, width, toggleMenu }) => (
+const Menu = ({ isOpen, children, pageWrapId, toggleMenu }) => {
+  const width = useWidth();
+  return (
   <div>
     {width === LARGE ? "" : <FloatingMenuBtn toggleMenu={toggleMenu} />}
     <SideMenu.slide
@@ -17,6 +20,6 @@ const Menu = ({ isOpen, children, pageWrapId, width, toggleMenu }) => (
       {children}
     </SideMenu.slide>
   </div>
-);
+)};
 
-export default withWidth(Menu);
+export default Menu;
